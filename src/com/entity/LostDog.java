@@ -1,7 +1,6 @@
 package com.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -12,7 +11,7 @@ public class LostDog {
     @Column(unique = true, nullable = true, length = 70)
     private String userName;
     @OneToMany(mappedBy = "lostDog")
-    private Set<Match> matches;
+    private Set<Match_> matches;
 
     private String picPath;
 

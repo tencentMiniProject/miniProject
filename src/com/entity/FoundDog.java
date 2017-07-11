@@ -11,7 +11,7 @@ public class FoundDog {
     @Column(unique = true, nullable = true, length = 70)
     private String userName;
     @OneToMany(mappedBy = "foundDog")
-    private Set<Match> matches;
+    private Set<Match_> matches;
     private String picPath;
 
 }
