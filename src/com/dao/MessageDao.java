@@ -11,11 +11,11 @@ import java.util.List;
  */
 @Repository
 public class MessageDao extends GenericDao<Message> {
-    public List<Message> getNewMessage(String userName) {
+    public List<Message> getNewMessage(String username) {
         List<Message> ret;
-        String jpql = "SELECT m from Message as m where m.userName =:userName and m.flag = true";
+        String jpql = "SELECT m from Message m where m.userName =:username and m.flag = true";
         Query query = getEntityManager().createQuery(jpql);
-        query.setParameter("userName", userName);
+        query.setParameter("username", username);
         ret = query.getResultList();
         return ret;
     }

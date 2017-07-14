@@ -3,11 +3,7 @@ package com.controller;
 /**
  * Created by william on 2017/7/12.
  */
-import com.entity.User;
-import com.service.ExamService;
 import com.service.MessageService;
-import com.service.TaskService;
-import com.service.UserService;
 import com.util.JsonUtils;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +20,7 @@ import java.io.File;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/MessageInterface")
+@RequestMapping("/messageInterface")
 public class MessageController {
     @Autowired
     MessageService messageService;

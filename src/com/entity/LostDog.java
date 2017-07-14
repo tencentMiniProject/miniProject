@@ -18,6 +18,15 @@ public class LostDog {
     private String race;
     private int age;
     private String location;
+    private int MatchedDogId;
+
+    public int getMatchedDogId() {
+        return MatchedDogId;
+    }
+
+    public void setMatchedDogId(int matchedDogId) {
+        MatchedDogId = matchedDogId;
+    }
 
     public String getContent() {
         return content;

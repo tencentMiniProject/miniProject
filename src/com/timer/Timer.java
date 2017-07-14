@@ -1,8 +1,7 @@
 package com.timer;
 
 
-import com.dao.ExamDao;
-import com.entity.Exam;
+import com.dao.Match_Dao;
 import com.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -16,13 +15,13 @@ import java.util.List;
 @Lazy(value=false)
 public class Timer {
     @Autowired
-    private ExamDao examDao;
+    private Match_Dao matchDao;
 
     @Scheduled(cron = "*/2 * * * * ?")
     public void sendMesssage() {
         System.out.print("近期监考");
         Date date = DateUtils.getTomorrowDate();
-        List<Exam> list = examDao.examListOfOneDay(date);
+        //List<Exam> list = examDao.examListOfOneDay(date);
 
     }
 }

@@ -20,14 +20,11 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:web/WEB-INF/applicationContext.xml")
 @WebAppConfiguration("web") // web项目的根目录，默认为 file:src/main/webapp
 public class UserControllerLoginTest {
-	@Autowired
-	private UserService userService;
 	@Autowired
 	private WebApplicationContext wac;
 	private MockMvc mockMvc;
