@@ -19,22 +19,13 @@
     <!-- 使用GBLIB，基于类创建代理对象，用于业务层事务 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
     <!-- 验证登录拦截器 -->
-    <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; 默认拦截所有请求 &ndash;&gt;-->
-            <!--<mvc:mapping path="/**" />-->
-
-            <!--<mvc:exclude-mapping path="/logout"/>-->
-            <!--<mvc:exclude-mapping path="/modifyPassword"/>-->
-            <!--<mvc:exclude-mapping path="/profile"/>-->
-            <!--<mvc:exclude-mapping path="/updateUser"/>-->
-            <!--<mvc:exclude-mapping path="/index" />-->
-            <!--<mvc:exclude-mapping path="/public/**" />-->
-            <!--<mvc:exclude-mapping path="/loginPost" />-->
-            <!--<mvc:exclude-mapping path="/error" />-->
-            <!--<bean class="com.AuthorityInterceptor"></bean>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 默认拦截所有请求 -->
+            <mvc:mapping path="/**" />
+            <bean class="com.AuthorityInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <!-- SpringMVC使用注释 -->
     <mvc:annotation-driven >
         <mvc:message-converters register-defaults="true">
@@ -56,7 +47,6 @@
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <property name="username" value="root"></property>
-        <!--<property name="password" value="53VFpSfhxNuh"></property>-->
         <property name="password" value="root"></property>
         <property name="url"
                   value="jdbc:mysql://localhost:3306/miniProject?createDatabaseIfNotExist=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;characterSetResults=utf8"></property>

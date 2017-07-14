@@ -11,7 +11,12 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		return true;
+		if(null!=request.getParameter("username"))
+			return true;
+		else{
+			System.out.println("AAAAAAAAAA");
+			return false;
+		}
 	}
 
 }
