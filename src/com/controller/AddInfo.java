@@ -34,51 +34,21 @@ public class AddInfo {
 
     @ResponseBody
     @RequestMapping(value="/addLostInfo",produces = "application/json; charset=utf-8")
-    public String addLostInfo(String username, MultipartFile file, String content, String race, int age, String location)
+    public String addLostInfo(String username, MultipartFile file, String content, String race, int age, String location, String nickName, String sex, String time)
     {
-        //文件存储
-        String fileName = file.getOriginalFilename();
-        String[] tmps = fileName.split("\\.");
-        if(tmps.length==0) throw new PostException("请传入正确的文件格式");
-        String fileExt = tmps[tmps.length-1];
-        fileName = DateUtils.getTimeInMillis() + "." + fileExt;
-        String path= "/upload/LostDog/" + username + "/" + DateUtils.getTimeInMillis() +fileName;
-        String sPath = System.getProperty("web.root") + path;
-        File serviceFile=new File(sPath);
-        if (!serviceFile.exists())
-            serviceFile.mkdirs();
-        try {
-            file.transferTo(serviceFile);
-        } catch (IOException e) {
-            throw new PostException("上传失败，请重试！");
-        }
+
         //更新表
-        addLostInfoService.insertLostDog(username, path,content, race, age, location);
+        addLostInfoService.insertLostDog(username, file, content, race, age, location, nickName, sex, time);
         return JsonUtils.writeStatus(1,"发布成功");
     }
 
     @ResponseBody
     @RequestMapping(value="/addFoundInfo",produces = "application/json; charset=utf-8")
-    public String addFoundInfo(String username, MultipartFile file, String content, String race, int age, String location)
+    public String addFoundInfo(String username, MultipartFile file, String content, String race, int age, String location, String nickName, String sex, String time)
     {
-        //文件存储
-        String fileName = file.getOriginalFilename();
-        String[] tmps = fileName.split("\\.");
-        if(tmps.length==0) throw new PostException("请传入正确的文件格式");
-        String fileExt = tmps[tmps.length-1];
-        fileName = DateUtils.getTimeInMillis() + "." + fileExt;
-        String path= "upload/FoundDog/" + username + "/" + DateUtils.getTimeInMillis() +fileName;
-        String sPath = System.getProperty("web.root") + path;
-        File serviceFile=new File(sPath);
-        if (!serviceFile.exists())
-            serviceFile.mkdirs();
-        try {
-            file.transferTo(serviceFile);
-        } catch (IOException e) {
-            throw new PostException("上传失败，请重试！");
-        }
+
         //更新表
-        addFoundInfoService.insertFoundDog(username, path,content, race, age, location);
+        addFoundInfoService.insertFoundDog(username, file,content, race, age, location, nickName, sex, time);
         return JsonUtils.writeStatus(1,"发布成功");
     }
 }

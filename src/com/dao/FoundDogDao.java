@@ -1,7 +1,5 @@
 package com.dao;
 
-import com.entity.Admin;
-import com.entity.Exam;
 import com.entity.FoundDog;
 import com.entity.FoundDog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +39,7 @@ public class FoundDogDao extends GenericDao<FoundDog>
     }
 
     @Transactional
-    public FoundDog insertFoundDog(String username, String filePath, String content, String race, int age, String location)
+    public FoundDog insertFoundDog(String username, String filePath, String content, String race, int age, String location, String nickName, String sex, String time)
     {
         FoundDog foundDog = new FoundDog();
         foundDog.setUserName(username);
@@ -50,6 +48,9 @@ public class FoundDogDao extends GenericDao<FoundDog>
         foundDog.setAge(age);
         foundDog.setLocation(location);
         foundDog.setContent(content);
+        foundDog.setNickName(nickName);
+        foundDog.setSex(sex);
+        foundDog.setTime(time);
 
         persist(foundDog);
         refresh(foundDog);

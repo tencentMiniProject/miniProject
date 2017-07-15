@@ -16,6 +16,9 @@ public class FoundDog {
     private String content;
     private String race;
     private int age;
+    private String nickName;
+    private String sex;
+    private String time;
     private String location;
 
     public String getContent() {
@@ -80,5 +83,29 @@ public class FoundDog {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

@@ -1,7 +1,5 @@
 package com.dao;
 
-import com.entity.Admin;
-import com.entity.Exam;
 import com.entity.LostDog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,7 +33,8 @@ public class LostDogDao extends GenericDao<LostDog> {
     }
 
     @Transactional
-    public LostDog insertLostDog(String username, String filePath, String content, String race, int age, String location) {
+    public LostDog insertLostDog(String username, String filePath, String content, String race, int age, String location, String nickName, String sex, String time)
+    {
         {
             LostDog lostDog = new LostDog();
             lostDog.setUserName(username);
@@ -44,6 +43,9 @@ public class LostDogDao extends GenericDao<LostDog> {
             lostDog.setAge(age);
             lostDog.setLocation(location);
             lostDog.setContent(content);
+            lostDog.setNickName(nickName);
+            lostDog.setSex(sex);
+            lostDog.setTime(time);
 
 
             persist(lostDog);

@@ -18,6 +18,9 @@ public class LostDog {
     private String race;
     private int age;
     private String location;
+    private String nickName;
+    private String sex;
+    private String time;
     private int MatchedDogId;
 
     public int getMatchedDogId() {
@@ -90,5 +93,29 @@ public class LostDog {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

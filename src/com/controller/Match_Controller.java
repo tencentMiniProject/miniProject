@@ -33,4 +33,12 @@ public class Match_Controller {
     public String getMatchByFoundDogId(HttpSession session, int foundDogId, int offset, int limit){
         return match_Service.getMatchByFoundDogId(foundDogId, offset, limit);
     }
+
+    @ResponseBody
+    @RequestMapping(value="/getMatchInfo",produces = "application/json; charset=utf-8")
+    public String getMatchInfo(int type, int id)
+    {
+        //返回信息
+        return match_Service.getMatch(type, id);
+    }
 }
