@@ -24,14 +24,14 @@ public class Match_Controller {
 
     @ResponseBody
     @RequestMapping(value="/getMatchByLostDogId",produces = "application/json; charset=utf-8")
-    public String getMatchByLostDogId(HttpSession session, int lostDogId, int offset, int limit){
-        return match_Service.getMatchByLostDogId(lostDogId, offset, limit);
+    public String getMatchByLostDogId(HttpSession session, int id, int offset, int limit){
+        return match_Service.getMatchByLostDogId(id, offset, limit);
     }
 
     @ResponseBody
     @RequestMapping(value="/getMatchByFoundDogId",produces = "application/json; charset=utf-8")
-    public String getMatchByFoundDogId(HttpSession session, int foundDogId, int offset, int limit){
-        return match_Service.getMatchByFoundDogId(foundDogId, offset, limit);
+    public String getMatchByFoundDogId(HttpSession session, int id, int offset, int limit){
+        return match_Service.getMatchByFoundDogId(id, offset, limit);
     }
 
     @ResponseBody
