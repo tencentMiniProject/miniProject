@@ -23,6 +23,8 @@
         <mvc:interceptor>
             <!-- 默认拦截所有请求 -->
             <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/public/**" />
+            <mvc:exclude-mapping path="/upload/**" />
             <bean class="com.AuthorityInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
