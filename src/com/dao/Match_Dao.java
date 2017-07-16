@@ -17,7 +17,7 @@ import java.util.List;
 public class Match_Dao extends GenericDao<Match_>{
     public List<Match_> getMatchByUserName(String username, int offset, int limit) {
         List<Match_> ret;
-        String jpql = "select m from Match_ m where m.lostDog.userName =:username order by m.similarity desc";
+        String jpql = "select m from Match_ m where m.lostDog.userName =:username and m.lostDog.MatchedDogId =0 order by m.similarity desc";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("username", username);
         if(limit > 0){
@@ -32,7 +32,7 @@ public class Match_Dao extends GenericDao<Match_>{
     }
 
     public long getTotalMatchByUserName(String username){
-        String jpql = "select count(m) from Match_ m where m.lostDog.userName =:username";
+        String jpql = "select count(m) from Match_ m where m.lostDog.userName =:username and m.lostDog.MatchedDogId =0";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("username", username);
         return (long)query.getSingleResult();
@@ -40,7 +40,7 @@ public class Match_Dao extends GenericDao<Match_>{
 
     public List<Match_> getMatchByLostDogId(int lostDogId, int offset, int limit){
         List<Match_> ret;
-        String jpql = "select m from Match_ m where m.lostDog.id =:lostDogId order by m.similarity desc";
+        String jpql = "select m from Match_ m where m.lostDog.id =:lostDogId and m.lostDog.MatchedDogId =0 order by m.similarity desc";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("lostDogId", lostDogId);
         if(limit > 0){
@@ -55,7 +55,7 @@ public class Match_Dao extends GenericDao<Match_>{
     }
 
     public long getTotalMatchByLostDogId(int lostDogId){
-        String jpql = "select count(m) from Match_ m where m.lostDog.id =:lostDogId";
+        String jpql = "select count(m) from Match_ m where m.lostDog.id =:lostDogId and m.lostDog.MatchedDogId =0";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("lostDogId", lostDogId);
         return (long)query.getSingleResult();
@@ -63,7 +63,7 @@ public class Match_Dao extends GenericDao<Match_>{
 
     public List<Match_> getMatchByFoundDogId(int foundDogId, int offset, int limit){
         List<Match_> ret;
-        String jpql = "select m from Match_ m where m.foundDog.id =:foundDogId order by m.similarity desc";
+        String jpql = "select m from Match_ m where m.foundDog.id =:foundDogId and m.lostDog.MatchedDogId =0 order by m.similarity desc";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("foundDogId", foundDogId);
         if(limit > 0){
@@ -78,7 +78,7 @@ public class Match_Dao extends GenericDao<Match_>{
     }
 
     public long getTotalMatchByFoundDogId(int foundDogId){
-        String jpql = "select count(m) from Match_ m where m.foundDog.id =:foundDogId";
+        String jpql = "select count(m) from Match_ m where m.foundDog.id =:foundDogId and m.lostDog.MatchedDogId =0";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("foundDogId", foundDogId);
         return (long)query.getSingleResult();
@@ -86,7 +86,7 @@ public class Match_Dao extends GenericDao<Match_>{
 
     public String getLostMatch(int id) {
         List<Match_> ret;
-        String jpql = "SELECT m from Match_ m where m.lostDog.id =:id";
+        String jpql = "SELECT m from Match_ m where m.lostDog.id =:id and m.lostDog.MatchedDogId =0";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("id", id);
         ret = query.getResultList();
@@ -105,7 +105,7 @@ public class Match_Dao extends GenericDao<Match_>{
 
     public String getFoundMatch(int id) {
         List<Match_> ret;
-        String jpql = "SELECT m from Match_ m where m.foundDog.id =:id";
+        String jpql = "SELECT m from Match_ m where m.foundDog.id =:id and m.lostDog.MatchedDogId =0";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("id", id);
         ret = query.getResultList();
