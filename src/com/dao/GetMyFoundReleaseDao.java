@@ -17,6 +17,7 @@ public class GetMyFoundReleaseDao extends GenericDao<FoundDog>
     public List<FoundDog> getMyFoundRelaseInfo(String username, int offset, int limit) {
         String jpql = "select m from FoundDog m where m.userName =:username order by m.id desc";
         Query query = getEntityManager().createQuery(jpql);
+        query.setParameter("username", username);
         List<FoundDog> list;
         if (limit > 0) {
             list = query

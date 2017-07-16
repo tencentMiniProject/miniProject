@@ -19,7 +19,6 @@ public class Timer {
 
     @Scheduled(cron = "*/2 * * * * ?")
     public void sendMesssage() {
-        System.out.print("近期监考");
         Date date = DateUtils.getTomorrowDate();
         //List<Exam> list = examDao.examListOfOneDay(date);
 
