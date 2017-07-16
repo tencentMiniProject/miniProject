@@ -8,7 +8,7 @@ public class FoundDog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique = true, nullable = true, length = 70)
+    @Column(nullable = false, length = 70)
     private String userName;
     @OneToMany(mappedBy = "foundDog")
     private Set<Match_> matches;
@@ -20,6 +20,9 @@ public class FoundDog {
     private String sex;
     private String time;
     private String location;
+    @Column(length = 30000)
+    private String vec;
+    private int dog_class;
 
     public String getContent() {
         return content;

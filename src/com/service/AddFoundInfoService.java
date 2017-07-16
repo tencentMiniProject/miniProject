@@ -31,7 +31,7 @@ public class AddFoundInfoService
         if(tmps.length==0) throw new PostException("请传入正确的文件格式");
         String fileExt = tmps[tmps.length-1];
         fileName = DateUtils.getTimeInMillis() + "." + fileExt;
-        String path= "upload/FoundDog/" + username + "/" + DateUtils.getTimeInMillis() +fileName;
+        String path= "/upload/FoundDog/" + username + "/" + DateUtils.getTimeInMillis() +fileName;
         String sPath = System.getProperty("web.root") + path;
         File serviceFile=new File(sPath);
         if (!serviceFile.exists())

@@ -9,7 +9,7 @@ public class LostDog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique = true, nullable = true, length = 70)
+    @Column(nullable = false, length = 70)
     private String userName;
     @OneToMany(mappedBy = "lostDog")
     private Set<Match_> matches;
@@ -22,6 +22,9 @@ public class LostDog {
     private String sex;
     private String time;
     private int MatchedDogId;
+    @Column(length = 30000)
+    private String vec;
+    private int dog_class;
 
     public int getMatchedDogId() {
         return MatchedDogId;
