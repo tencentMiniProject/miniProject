@@ -23,8 +23,8 @@
         <mvc:interceptor>
             <!-- 默认拦截所有请求 -->
             <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="/public/**" />
-            <mvc:exclude-mapping path="/upload/**" />
+            <mvc:exclude-mapping path="/public/**"/>
+            <mvc:exclude-mapping path="/upload/**"/>
             <bean class="com.AuthorityInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
@@ -49,7 +49,7 @@
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="53VFpSfhxNuh"></property>
+        <property name="password" value="root"></property>
         <property name="url"
                   value="jdbc:mysql://localhost:3306/miniProject?createDatabaseIfNotExist=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;characterSetResults=utf8"></property>
     </bean>
