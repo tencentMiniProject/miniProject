@@ -33,6 +33,7 @@ public class Match_Service {
             jobj.put("lostDog_location",match.getLostDog().getLocation());
             jobj.put("lostDog_picPath",match.getLostDog().getPicPath());
             jobj.put("lostDog_race",match.getLostDog().getRace());
+            jobj.put("matchedDogId", match.getLostDog().getMatchedDogId());
             jobj.put("foundDog_id",match.getFoundDog().getId());
             jobj.put("foundDog_age",match.getFoundDog().getAge());
             jobj.put("foundDog_content",match.getFoundDog().getContent());
@@ -71,6 +72,7 @@ public class Match_Service {
             lostDogInfo.put("lostDog_location",m.getLostDog().getLocation());
             lostDogInfo.put("lostDog_picPath",m.getLostDog().getPicPath());
             lostDogInfo.put("lostDog_race",m.getLostDog().getRace());
+            lostDogInfo.put("matchedDogId", m.getLostDog().getMatchedDogId());
         }
         JSONObject ret = new JSONObject();
         ret.put("total", match_Dao.getTotalMatchByLostDogId(lostDogId));
@@ -93,6 +95,7 @@ public class Match_Service {
             jobj.put("lostDog_picPath",match.getLostDog().getPicPath());
             jobj.put("lostDog_race",match.getLostDog().getRace());
             jobj.put("lostDog_username",match.getLostDog().getUserName());
+            jobj.put("matchedDogId", match.getLostDog().getMatchedDogId());
             jobjList.add(jobj);
         }
         JSONObject foundDogInfo = new JSONObject();
