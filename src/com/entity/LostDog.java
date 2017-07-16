@@ -1,5 +1,7 @@
 package com.entity;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -22,7 +24,8 @@ public class LostDog {
     private String sex;
     private String time;
     private int MatchedDogId;
-    @Column(length = 30000)
+    @Type(type="text")
+    @Column
     private String vec;
     private int dog_class;
 
